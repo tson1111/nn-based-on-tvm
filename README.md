@@ -1,2 +1,2 @@
-# NN-based-on-tvm
- Implementation of neural network based on tvm. The course project of Compiler Design in 2019 Spring
+#  Implementation of Neural Network Based on tvm
+Cong Ding's course project of *Compiler Design* in 2019 Spring, lectured by Prof. Yun Eric Liang.
