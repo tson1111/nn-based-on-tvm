@@ -42,14 +42,14 @@ def conv2d(Image, Filter):
 
     Parameters
     ----------
-    Image : numpy.ndarray
+    Image : tvm.tensor.Tensor
         4-D with shape [batch_size, image_height, image_width, in_channels]
-    Filter: numpy ndarray
+    Filter: tvm.tensor.Tensor
         4-D with shape [out_channels, in_channels, kernel_height, kernel_width]
 
     Returns
     -------
-    Output: numpy.ndarray
+    Output: tvm.tensor.Tensor
         4-D with shape [batch_size, out_height, out_width, out_channels]
     """
     pass
@@ -60,18 +60,18 @@ def conv2db(Image, Filter, POutput):
 
     Parameters
     ----------
-    Image : numpy.ndarray
+    Image : tvm.tensor.Tensor
         4-D with shape [batch_size, image_height, image_width, in_channels]
-    Filter: numpy.ndarray
+    Filter: tvm.tensor.Tensor
         4-D with shape [out_channels, in_channels, kernel_height, kernel_width]
-    POutput:numpy.ndarray, gradient of Output
+    POutput:tvm.tensor.Tensor, gradient of Output
         4-D with shape [batch_size, out_height, out_width, out_channels]
 
     Returns
     -------
-    PImage :numpy.ndarray, gradient of Image
+    PImage :tvm.tensor.Tensor, gradient of Image
         4-D with shape (Image.shape)
-    PFilter:numpy.ndarray, gradient of Filter
+    PFilter:tvm.tensor.Tensor, gradient of Filter
         4-D with shape (Filter.shape)
     """
     pass
@@ -82,12 +82,12 @@ def relu(Image):
 
     Parameters
     ----------
-    Image : numpy.ndarray
+    Image : tvm.tensor.Tensor
         4-D with shape [batch_size, image_height, image_width, in_channels]
 
     Returns
     -------
-    Output: numpy.ndarray
+    Output: tvm.tensor.Tensor
         4-D with shape (Image.shape)
     """
     pass
@@ -98,14 +98,14 @@ def relub(Image, POutput):
 
     Parameters
     ----------
-    Image : numpy.ndarray
+    Image : tvm.tensor.Tensor
         4-D with shape [batch_size, image_height, image_width, in_channels]
-    POutput:numpy.ndarray, gradient of Output
+    POutput:tvm.tensor.Tensor, gradient of Output
         4-D with shape [batch_size, image_height, image_width, in_channels]
 
     Returns
     -------
-    PImage: numpy.ndarray
+    PImage: tvm.tensor.Tensor
         4-D with shape (Image.shape)
     """
     pass
@@ -116,12 +116,12 @@ def pooling(Image):
 
     Parameters
     ----------
-    Image : numpy.ndarray
+    Image : tvm.tensor.Tensor
         4-D with shape [batch_size, image_height, image_width, in_channels]
 
     Returns
     -------
-    Output: numpy.ndarray
+    Output: tvm.tensor.Tensor
         4-D with shape [batch_size, out_height, out_width, in_channels]
     """
     pass
@@ -132,9 +132,9 @@ def poolingb(Image, Index, POutput):
 
     Parameters
     ----------
-    Image : numpy.ndarray
+    Image : tvm.tensor.Tensor
         4-D with shape [batch_size, image_height, image_width, in_channels]
-    Index : numpy.ndarray, specify where Output[i,j,k,l] is from, this follows the convention of 
+    Index : tvm.tensor.Tensor, specify where Output[i,j,k,l] is from, this follows the convention of 
         Numpy and PyTorch. You will need this tensor to compute the gradient.
         ------------------------------------------
         For example, if Image is of shape [1, 4, 4, 1] (batch 1 and channel 1), then the slice
@@ -156,12 +156,12 @@ def poolingb(Image, Index, POutput):
                 11= 2 * 4 + 3 (2, 3)
         --------------------------------------------
         4-D with shape [batch_size, out_height, out_width, in_channels]
-    POutput:numpy.ndarray, gradient of Output
+    POutput:tvm.tensor.Tensor, gradient of Output
         4-D with shape [batch_size, out_height, out_width, in_channels]
 
     Returns
     -------
-    PImage: numpy.ndarray, gradient of Image
+    PImage: tvm.tensor.Tensor, gradient of Image
         4-D with shape (Image.shape)
     """
     pass
@@ -172,12 +172,12 @@ def flatten(Image):
 
     Parameters
     ----------
-    Image : numpy.ndarray
+    Image : tvm.tensor.Tensor
         4-D with shape [batch_size, image_height, image_width, in_channels]
 
     Returns
     -------
-    Output: numpy.ndarray
+    Output: tvm.tensor.Tensor
         2-D with shape [batch_size, out_size]
     """
     pass
@@ -188,14 +188,14 @@ def flattenb(Image, POutput):
 
     Parameters
     ----------
-    Image : numpy.ndarray
+    Image : tvm.tensor.Tensor
         4-D with shape [batch_size, image_height, image_width, in_channels]
-    POutput:numpy.ndarray, gradient of Output
+    POutput:tvm.tensor.Tensor, gradient of Output
         4-D with shape [batch_size, out_size]
 
     Returns
     -------
-    PImage: numpy.ndarray
+    PImage: tvm.tensor.Tensor
         4-D with shape (Image.shape)
     """
     pass
@@ -206,14 +206,14 @@ def fullyconn(Input, Weight):
 
     Parameters
     ----------
-    Input : numpy.ndarray
+    Input : tvm.tensor.Tensor
         2-D with shape [batch_size, input_size]
-    Weight: numpy.ndarray
+    Weight: tvm.tensor.Tensor
         2-D with shape [input_size, out_size]
 
     Returns
     -------
-    Output: numpy.ndarray
+    Output: tvm.tensor.Tensor
         2-D with shape [batch_size, out_size]
     """
     pass
@@ -224,18 +224,18 @@ def fullyconnb(Input, Weight, POutput):
 
     Parameters
     ----------
-    Input : numpy.ndarray
+    Input : tvm.tensor.Tensor
         2-D with shape [batch_size, input_size]
-    Weight: numpy.ndarray
+    Weight: tvm.tensor.Tensor
         2-D with shape [input_size, out_size]
-    POutput:numpy.ndarray, gradient of Output
+    POutput:tvm.tensor.Tensor, gradient of Output
         2-D with shape [batch_size, out_size]
 
     Returns
     -------
-    PWeight:numpy.ndarray, gradient of Weight
+    PWeight:tvm.tensor.Tensor, gradient of Weight
         2-D with shape (Weight.shape)
-    PInput: numpy.ndarray, gradient of Input
+    PInput: tvm.tensor.Tensor, gradient of Input
         2-D with shape (Input.shape)
     """
     pass
