@@ -175,7 +175,7 @@ def pooling(Image):
     rx = tvm.reduce_axis((0, 2), name='rx')
     ry = tvm.reduce_axis((0, 2), name='ry')
 
-    Output = tvm.compute((N, H/2, W/2, C), lambda n,i,j,c: tvm.max(Image[n, i*2+rx, j*2+ry, c], 
+    Output = tvm.compute((N, H//2, W//2, C), lambda n,i,j,c: tvm.max(Image[n, i*2+rx, j*2+ry, c], 
                             axis=[rx, ry]))
 
     return Output
